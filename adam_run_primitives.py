@@ -8,9 +8,9 @@ is_sim =True
 workspace_limits = np.asarray([[-0.724, -0.276], [-0.224, 0.224], [-0.0001, 0.4]]) # Cols: min max, Rows: x y z (define workspace limits in robot coordinates)
 robot = Robot(is_sim, workspace_limits)
 
-#Varibles Adam made
+#Variables Adam made
 heightmap_rotation_angle = 0 #needed for grasp function
-workspace_center = [-.5, 0, .05] #where the objects will be placed
+workspace_center = [-.5, 0, .02] #where the objects will be placed
 
 #getting handles of objects, will have to be replaced by camera-based positions
 blk_handle = [0]*2
@@ -41,7 +41,7 @@ objectsPresent = 2 #planned to be filled with objects detected by cameras
 towerTip = workspace_center #tip of tower, where next block will be placed
 tipRaise = .05 #how much towerTip must be raised by to properly place next object, will be slightly higher than picked object
 for i in range(0, objectsPresent):
-	robot.grasp(blk_position[i],heightmap_rotation_angle,workspace_limits, workspace_center)
+	robot.grasp(blk_position[i],heightmap_rotation_angle,workspace_limits, towerTip) # Arm crashes when presented with an impossible grasp
 	robot.move_to(UR5_target_position, None)
 	towerTip[2] += tipRaise
 
