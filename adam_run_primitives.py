@@ -33,7 +33,7 @@ robot.setup_sim_camera()
 rgb, depth = robot.get_camera_data()
 #print(rgb)
 #print(depth)
-robot.pretrained_torch(rgb)
+#robot.pretrained_torch(rgb)
 #end of testing camera
 
 

@@ -10,14 +10,14 @@ from simulation import vrep
 
 # EVERYTHING THAT I ADDED/CHANGED FROM THE ORIGINAL ROBOT_SAEID FILE
 # IS MARKED WITH 'ADAM'
-
+'''
 #ADAM adding torch, pillow, and json for object classification
 from torchvision import models
 import torch
 from torchvision import transforms
 from PIL import Image
 import json
-
+'''
 
 
 class Robot(object):
@@ -99,7 +99,7 @@ class Robot(object):
             '''
             # Add objects to simulation environment
             #self.add_objects()
-
+    '''
     #ADAM added from original pretrained_torch file and editted to work here
     def pretrained_torch(self, rgb_data):
         dir(models)
@@ -141,7 +141,7 @@ class Robot(object):
 
         for idx in out[0].sort()[1][-10:]:
             print(idx2label[idx])
-        
+    ''' 
 
     def setup_sim_camera(self):
 
